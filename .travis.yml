@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t ozgusykbr/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run ozgusykbr/docker-react npm run test -- --coverage
